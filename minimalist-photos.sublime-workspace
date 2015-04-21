@@ -379,6 +379,70 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "www/index.html",
+			"settings":
+			{
+				"buffer_size": 1796,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/js/app.js",
+			"settings":
+			{
+				"buffer_size": 790,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "www/js/infinite-scroll/Infinite-Scroll.js",
+			"settings":
+			{
+				"buffer_size": 413,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/js/controllers.js",
+			"settings":
+			{
+				"buffer_size": 1718,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/js/services.js",
+			"settings":
+			{
+				"buffer_size": 1791,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/js/PhotoManager.js",
+			"settings":
+			{
+				"buffer_size": 1256,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/js/flickr/FlickrService.js",
+			"settings":
+			{
+				"buffer_size": 1883,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scss/ionic.app.scss",
+			"settings":
+			{
+				"buffer_size": 1826,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -456,6 +520,9 @@
 	},
 	"file_history":
 	[
+		"/C/wamp/www/my_projects/minimalist-photos/www/css/ionic.app.css",
+		"/C/wamp/www/my_projects/minimalist-photos/www/css/style.css",
+		"/C/wamp/www/my_projects/minimalist-photos/README.md",
 		"/C/wamp/www/my_projects/johns-flickr-app-ionic/www/js/FlickrService.js",
 		"/C/wamp/www/my_projects/johns-flickr-app-ionic/scss/ionicons.scss",
 		"/C/wamp/www/my_projects/johns-flickr-app-ionic/.gitignore",
@@ -580,10 +647,7 @@
 		"/C/wamp/www/other_projects/OTV/tube/lib/ng-device-detector.js",
 		"/C/wamp/www/other_projects/OTV/tube/lib/ua-parser.js",
 		"/C/wamp/www/other_projects/OTV/analytics/app/clips/template.html",
-		"/C/wamp/www/other_projects/OTV/analytics/app/tags/tags.js",
-		"/C/wamp/www/other_projects/OTV/analytics/app/tags/template.html",
-		"/C/wamp/www/other_projects/OTV/tube/lib/ng-device-detector.min.js",
-		"/C/wamp/www/other_projects/OTV/mynews/index.html"
+		"/C/wamp/www/other_projects/OTV/analytics/app/tags/tags.js"
 	],
 	"find":
 	{
@@ -726,6 +790,10 @@
 		[
 			"ContentController",
 			"\"",
+			"'",
+			"\"",
+			"ContentController",
+			"\"",
 			"channelID",
 			"LogService",
 			"PlayNext",
@@ -847,11 +915,7 @@
 			"SearchSu",
 			"showSuggestions",
 			"_getSearchModeAn",
-			"performSearch",
-			"self.text",
-			"_getSearchModeAndSetSearchText",
-			"_searchMode",
-			"_updateSearchRec"
+			"performSearch"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -859,6 +923,10 @@
 		"regex": true,
 		"replace_history":
 		[
+			"HeaderController",
+			"'",
+			"",
+			"'",
 			"SubHeaderController",
 			"'",
 			"",
@@ -982,11 +1050,7 @@
 			"properties",
 			"assetData",
 			"$log.info",
-			"this.$rootScope",
-			"this.LogService",
-			"this.LogManager",
-			"PlayEvent",
-			"timeChangeHandler"
+			"this.$rootScope"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -997,8 +1061,228 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "www/index.html",
+					"settings":
+					{
+						"buffer_size": 1796,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1627,
+								1627
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 402.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "www/js/app.js",
+					"settings":
+					{
+						"buffer_size": 790,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								777,
+								777
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "www/js/infinite-scroll/Infinite-Scroll.js",
+					"settings":
+					{
+						"buffer_size": 413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								308,
+								308
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "www/js/controllers.js",
+					"settings":
+					{
+						"buffer_size": 1718,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1029,
+								1029
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 388.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "www/js/services.js",
+					"settings":
+					{
+						"buffer_size": 1791,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								525,
+								527
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "www/js/PhotoManager.js",
+					"settings":
+					{
+						"buffer_size": 1256,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "www/js/flickr/FlickrService.js",
+					"settings":
+					{
+						"buffer_size": 1883,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								587,
+								587
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 84.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "scss/ionic.app.scss",
+					"settings":
+					{
+						"buffer_size": 1826,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								976,
+								976
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Syntax Highlighting for Sass/Syntaxes/SCSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 284.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
