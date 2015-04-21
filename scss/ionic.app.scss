@@ -17,6 +17,7 @@ $dark:                            #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+$image-fadein: fadein 2s;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
@@ -27,17 +28,37 @@ ion-header-bar.bar .title {
 	font-weight: 100;
 }
 
-.row { margin: 20px 0; }
+/* Maintain image ratio: http://www.sitepoint.com/maintain-image-aspect-ratios-responsive-web-design/ */
+.myRow { 
+    margin: 20px 0; 
+    
+    display: block;
+    width: 100%;
+    position: relative;
+    height: 0;
+    padding: 56.25% 0 0 0; 
+    overflow: hidden;
+}
 
 ion-content img { 
 	display: block;
-	margin: 0 auto;
+	margin: auto;
 
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s; /* Firefox < 16 */
-        -ms-animation: fadein 2s; /* Internet Explorer */
-         -o-animation: fadein 2s; /* Opera < 12.1 */
-            animation: fadein 2s;	
+/* Playing with the max-width & max-height can bring about cropping effects */
+    max-width: 100%;
+/*    max-height: 100%; */
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    -webkit-animation: $image-fadein; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: $image-fadein; /* Firefox < 16 */
+        -ms-animation: $image-fadein; /* Internet Explorer */
+         -o-animation: $image-fadein; /* Opera < 12.1 */
+            animation: $image-fadein;	
 } 
 ion-content label {
 	display: none;

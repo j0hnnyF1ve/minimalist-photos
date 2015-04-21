@@ -7608,12 +7608,27 @@ ion-header-bar.bar .title {
   font-size: 2em;
   font-weight: 100; }
 
-.row {
-  margin: 20px 0; }
+/* Maintain image ratio: http://www.sitepoint.com/maintain-image-aspect-ratios-responsive-web-design/ */
+.myRow {
+  margin: 20px 0;
+  display: block;
+  width: 100%;
+  position: relative;
+  height: 0;
+  padding: 56.25% 0 0 0;
+  overflow: hidden; }
 
 ion-content img {
   display: block;
-  margin: 0 auto;
+  margin: auto;
+  /* Playing with the max-width & max-height can bring about cropping effects */
+  max-width: 100%;
+  /*    max-height: 100%; */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   -webkit-animation: fadein 2s;
   /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 2s;

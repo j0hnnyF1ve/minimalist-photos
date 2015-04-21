@@ -33,7 +33,7 @@
     <ion-pane>
       <ion-content class="has-header" jp-infinite-scroll ng-controller="ContentController as content">
 
-        <div class="row" ng-repeat="photo in content.photos" >
+        <div class="myRow" ng-repeat="photo in content.photos" >
           <img ng-src="{{content.photos[$index].bigPhotoUrl}}" />
           <label ng-bind="content.photos[$index].caption"></label>
           <span ng-bind="$index"></span>
@@ -41,7 +41,7 @@
 
         <ion-infinite-scroll 
           on-infinite="content.loadMorePhotos()" 
-          distance="20%" 
+          distance="7%" 
           immediate-check="false"
           ng-if="content.hasMorePhotos()"
           ></ion-infinite-scroll>

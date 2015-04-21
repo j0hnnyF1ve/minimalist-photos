@@ -21,11 +21,12 @@ function ContentController($scope, AppState, PhotoManager) {
 	var self = this;
 	var currentPhotoset = AppState.get('currentPhotoset');
 	var currentIndex = 0;
+	var isStart = true;
 
 	self.photos = [];
 	self.loadMorePhotos = function() {
 		// Once there are only two photos left before the bottom of the page, get more photos
-		if(currentPhotoset.count() - currentIndex < 2) { 
+		if(currentPhotoset.count && currentPhotoset.count() - currentIndex < 2) { 
 			// Ask the photo manager for more photos
 			PhotoManager.getMorePhotos();
 		}
@@ -54,8 +55,16 @@ function ContentController($scope, AppState, PhotoManager) {
 				if(newVal.getPhotos) { 
 					currentPhotoset = newVal; 
 					currentIndex = 0;
-					self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
-					self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
+					
+					if(isStart === true) {
+						self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
+						self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
+						self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
+						isStart = false;
+					}
+					else {
+						self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
+					}
 				}
 			}
 	});
