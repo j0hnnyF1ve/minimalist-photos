@@ -5,13 +5,15 @@ function PhotoManager($interval, Photos, AppState, FlickrService) {
 		var mInterval;
 		var mInitCounter = 0;
 		var mUserId = null;
+		var mCurrentPage = 1;
+		var mNumPhotos = 10;
 
 		var in_username = 'jpballer97';
 		var in_urlname = 'john_pangilinan';
 
 		this.init = function() {
 
-			mInterval = $interval(checkInit, 1000);
+			mInterval = $interval(_checkInit, 1000);
 
 			FlickrService.getNSIDforUrlName(in_urlname).then(responseHandler);
 			FlickrService.getNSIDforUsername(in_username).then(responseHandler);
@@ -24,28 +26,39 @@ function PhotoManager($interval, Photos, AppState, FlickrService) {
 			}
 		}
 
-		function checkInit() { 
+		this.getMorePhotos = function() { 
+			return _getPhotos(mNumPhotos, ++mCurrentPage);
+		}
+
+
+		function _checkInit() { 
 			if(mInitCounter >= 2) { 
 				$interval.cancel(mInterval); 
-				setupUser();
+				_setupUser();
+			}
+
+			function _setupUser() {
+				if(mUserId) {
+					AppState.set("username", in_username);
+					_getPhotos(mNumPhotos, mCurrentPage);
+				}
 			}
 		}
 
-		function setupUser() {
-			if(mUserId) {
-				AppState.set("username", in_username);
 
-				FlickrService.getPublicPhotos(mUserId, 10, 1).then(function(response) { 
-					var photos = new Photos();
+		function _getPhotos(numPhotos, pageNum) { 
+			return FlickrService.getPublicPhotos(mUserId, numPhotos, pageNum).then(function(response) {
 
-					var list = response.photos.photo;
-					for(var i=0; i < list.length; i++) {
-						photos.addPhoto(list[i]);
-					}
+				var photos = new Photos();
 
-					AppState.set('currentPhotoset', photos);
-				});
-			}
+				var list = response.photos.photo;
+				for(var i=0; i < list.length; i++) {
+					photos.addPhoto(list[i]);
+				}
+
+				AppState.set('previousPhotoset', AppState.get('currentPhotoset') );
+				AppState.set('currentPhotoset', photos)
+			});
 		}
 	}
 

@@ -5,7 +5,6 @@ InfiniteScroll.$inject = ['$window'];
 function InfiniteScroll($window) {
 
 	var Link = function(scope, element, attributes) { 
-
 		angular.element(window).on("scroll", function( $event ) {
 			scope.$apply(function() { 
 

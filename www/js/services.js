@@ -1,8 +1,8 @@
-angular.module('main').factory('Photos', Photos);
-Photos.$inject = ['PhotoModel'];
-function Photos(PhotoModel) {
+angular.module('main').factory('Photos', PhotosModel);
+PhotosModel.$inject = ['PhotoModel'];
+function PhotosModel(PhotoModel) {
 	
-	function photos() {
+	function Photos() {
 		var self = this;
 		var mPhotos = [];
 		
@@ -17,7 +17,7 @@ function Photos(PhotoModel) {
 		self.count = function() { return mPhotos.length; }
 	}
 
-	return photos;
+	return Photos;
 }
 
 angular.module('main').factory('PhotoModel', PhotoModel);

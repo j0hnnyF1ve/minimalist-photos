@@ -36,6 +36,7 @@
         <div class="row" ng-repeat="photo in content.photos" >
           <img ng-src="{{content.photos[$index].bigPhotoUrl}}" />
           <label ng-bind="content.photos[$index].caption"></label>
+          <span ng-bind="$index"></span>
         </div>
 
         <ion-infinite-scroll 

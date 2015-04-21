@@ -16,7 +16,5 @@ angular.module('main', ['ionic', 'flickr', 'jp-infinite-scroll'])
       StatusBar.styleDefault();
     }
 
-    AppState.set('currentPhotoset', new Photos() );
-
   });
 })
