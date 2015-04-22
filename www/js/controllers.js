@@ -15,16 +15,30 @@ function HeaderController($scope, AppState, PhotoManager) {
 
 }
 
-angular.module('main').controller('ContentController', ContentController);
-ContentController.$inject = ['$scope', 'AppState', 'PhotoManager'];
-function ContentController($scope, AppState, PhotoManager) {
+angular.module('main').controller('MainController', MainController);
+MainController.$inject = ['$scope', '$state', '$stateParams', 'AppState', 'PhotoManager'];
+function MainController($scope, $state, $stateParams, AppState, PhotoManager) {
+
+	if(!$stateParams.username || $stateParams.username.length <= 0) { 
+		$state.go('default');
+		return; 
+	}
+
 	var self = this;
 	var currentPhotoset = AppState.get('currentPhotoset');
 	var currentIndex = 0;
 	var isStart = true;
 
 	self.photos = [];
-	self.loadMorePhotos = function() {
+
+	// Method declarations
+	self.loadMorePhotos = loadMorePhotos;
+	self.hasMorePhotos = hasMorePhotos;
+
+	PhotoManager.init($stateParams.username);
+
+	// Start: Method Implementations
+	function loadMorePhotos() {
 		// Once there are only two photos left before the bottom of the page, get more photos
 		if(currentPhotoset.count && currentPhotoset.count() - currentIndex < 2) { 
 			// Ask the photo manager for more photos
@@ -40,11 +54,12 @@ function ContentController($scope, AppState, PhotoManager) {
 			$scope.$broadcast('scroll.infiniteScrollComplete');
 		}
 	}
-	self.hasMorePhotos = function() { 
+
+
+	function hasMorePhotos() { 
 		return (!currentPhotoset.count || currentIndex < currentPhotoset.count() );
 	}
 
-	PhotoManager.init();
 
 	// Move this into the PhotoManager when we build the pub/sub system
 	// Note: Need to modify this to be more flexible, currently we rely on there being 10 photos per page to work properly
@@ -68,4 +83,15 @@ function ContentController($scope, AppState, PhotoManager) {
 				}
 			}
 	});
+
+	return this;
+}
+
+angular.module('main').controller('DefaultController', DefaultController);
+DefaultController.$inject = ['$scope', '$location'];
+function DefaultController($scope, $location) { 
+      var self = this;
+      self.domain = $location.absUrl();
+
+      return this;
 }

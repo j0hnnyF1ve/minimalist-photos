@@ -7618,7 +7618,7 @@ ion-header-bar.bar .title {
   padding: 56.25% 0 0 0;
   overflow: hidden; }
 
-ion-content img {
+.myRow img {
   display: block;
   margin: auto;
   /* Playing with the max-width & max-height can bring about cropping effects */

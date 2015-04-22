@@ -18,3 +18,28 @@ angular.module('main', ['ionic', 'flickr', 'jp-infinite-scroll'])
 
   });
 })
+
+.config(['$locationProvider', '$stateProvider', '$urlRouterProvider', 
+  function($locationProvider, $stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/');
+
+  var defaultState = {
+    name: 'default', 
+    url: '/',
+    templateUrl: 'templates/default.html',
+    controller: 'DefaultController as default'
+  }
+
+  var mainState = {
+    name: 'main',
+    url: '/:username', // this is either a username or a urlname of the user's flickr account
+    templateUrl: 'templates/main.html',
+    controller: 'MainController as main',
+  }
+
+//  $locationProvider
+//    .html5Mode({enabled: true});
+
+  $stateProvider.state(defaultState);
+  $stateProvider.state(mainState);
+}]);

@@ -1,6 +1,6 @@
 angular.module('main').service('PhotoManager', PhotoManager);
-PhotoManager.$inject = ['$interval', 'Photos', 'AppState', 'FlickrService'];
-function PhotoManager($interval, Photos, AppState, FlickrService) {
+PhotoManager.$inject = ['$interval', '$state', 'Photos', 'AppState', 'FlickrService'];
+function PhotoManager($interval, $state, Photos, AppState, FlickrService) {
 	function photoManager() {
 		var mInterval;
 		var mInitCounter = 0;
@@ -8,14 +8,13 @@ function PhotoManager($interval, Photos, AppState, FlickrService) {
 		var mCurrentPage = 1;
 		var mNumPhotos = 10;
 
-		var in_username = 'jpballer97';
-		var in_urlname = 'john_pangilinan';
+		var in_username = '';
 
-		this.init = function() {
-
+		this.init = function(username) {
+			in_username = username;
 			mInterval = $interval(_checkInit, 1000);
 
-			FlickrService.getNSIDforUrlName(in_urlname).then(responseHandler);
+			FlickrService.getNSIDforUrlName(in_username).then(responseHandler);
 			FlickrService.getNSIDforUsername(in_username).then(responseHandler);
 
 			function responseHandler(response) { 
@@ -41,7 +40,8 @@ function PhotoManager($interval, Photos, AppState, FlickrService) {
 				if(mUserId) {
 					AppState.set("username", in_username);
 					_getPhotos(mNumPhotos, mCurrentPage);
-				}
+				} 
+				else { $state.go('default'); }
 			}
 		}
 

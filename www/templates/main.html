@@ -1,0 +1,14 @@
+<ion-content>
+  <div class="myRow" ng-repeat="photo in main.photos" >
+    <img ng-src="{{main.photos[$index].bigPhotoUrl}}" />
+    <label ng-bind="main.photos[$index].caption"></label>
+    <span ng-bind="$index"></span>
+  </div>
+
+  <ion-infinite-scroll 
+    on-infinite="main.loadMorePhotos()" 
+    distance="7%" 
+    immediate-check="false"
+    ng-if="main.hasMorePhotos()"
+    ></ion-infinite-scroll>
+</ion-content>

@@ -21,18 +21,23 @@ function PhotosModel(PhotoModel) {
 }
 
 angular.module('main').factory('PhotoModel', PhotoModel);
-PhotoModel.$inject = [];
-function PhotoModel() {
+PhotoModel.$inject = ['$log'];
+function PhotoModel($log) {
 	function Photo(photo) {
-		this.caption = photo.title || "";
+		var self = this;
+		self.caption = photo.title || "";
 
-		this.thumbnailUrl = "http://farm" + photo.farm + ".static.flickr.com/" + 
+		self.thumbnailUrl = "http://farm" + photo.farm + ".static.flickr.com/" + 
 							        photo.server + "/" + photo.id + "_" + photo.secret + "_" + "t.jpg";
-		this.photoUrl = "http://farm" + photo.farm + ".static.flickr.com/" + 
+		self.photoUrl = "http://farm" + photo.farm + ".static.flickr.com/" + 
 							        photo.server + "/" + photo.id + "_" + photo.secret + ".jpg";
-		this.bigPhotoUrl = "http://farm" + photo.farm + ".static.flickr.com/" + 
+		self.bigPhotoUrl = "http://farm" + photo.farm + ".static.flickr.com/" + 
 							        photo.server + "/" + photo.id + "_" + photo.secret + "_b.jpg";
-		this.pageUrl = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
+		self.pageUrl = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
+
+		var bigImage = new Image();
+		bigImage.src = self.bigPhotoUrl;
+		bigImage.onload = function() { $log.log(self.bigPhotoUrl + ' has loaded!'); }
 	}
 	return Photo;
 }
