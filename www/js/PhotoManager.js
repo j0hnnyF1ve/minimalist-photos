@@ -8,14 +8,19 @@ function PhotoManager($interval, $state, Photos, AppState, FlickrService) {
 		var mCurrentPage = 1;
 		var mNumPhotos = 10;
 
-		var in_username = '';
+		var mUsername = '';
+
+		var tempUsername = '';
 
 		this.init = function(username) {
-			in_username = username;
+			mUserId = null;
+			mUsername = '';
+
+			tempUsername = username;
 			mInterval = $interval(_checkInit, 1000);
 
-			FlickrService.getNSIDforUrlName(in_username).then(responseHandler);
-			FlickrService.getNSIDforUsername(in_username).then(responseHandler);
+			FlickrService.getNSIDforUrlName(username).then(responseHandler);
+			FlickrService.getNSIDforUsername(username).then(responseHandler);
 
 			function responseHandler(response) { 
 				if(response.stat == 'ok') {
@@ -38,10 +43,15 @@ function PhotoManager($interval, $state, Photos, AppState, FlickrService) {
 
 			function _setupUser() {
 				if(mUserId) {
-					AppState.set("username", in_username);
+					mUsername = tempUsername;
+					AppState.set('username', mUsername);
 					_getPhotos(mNumPhotos, mCurrentPage);
 				} 
-				else { $state.go('default'); }
+				else { 
+					AppState.set('username', '');
+					$state.go('default'); 
+
+				}
 			}
 		}
 

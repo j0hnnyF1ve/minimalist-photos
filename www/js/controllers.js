@@ -1,9 +1,19 @@
 angular.module('main').controller('HeaderController', HeaderController);
-HeaderController.$inject = ['$scope', 'AppState', 'PhotoManager'];
-function HeaderController($scope, AppState, PhotoManager) {
+HeaderController.$inject = ['$scope', '$state', 'AppState'];
+function HeaderController($scope, $state, AppState) {
 	var self = this;
 
-	self.username = "";
+	self.username = '';
+	self.searchActive = false;
+	self.searchTerm = '';
+
+	self.searchHandler = function(event) {
+		if(event.keyCode == 13) {
+			self.searchActive = false;
+			$state.go('main', { username: self.searchTerm} );
+			self.username = self.searchTerm;
+		}
+	}
 
 	$scope.$watch(
 		function() { return AppState.get('username'); }, 

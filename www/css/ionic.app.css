@@ -7604,43 +7604,69 @@ a.button {
   transition-duration: 0s; }
 
 ion-header-bar.bar .title {
-  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Helvetica Neue', Roboto, 'Segoe UI', sans-serif;
   font-size: 2em;
-  font-weight: 100; }
-
-/* Maintain image ratio: http://www.sitepoint.com/maintain-image-aspect-ratios-responsive-web-design/ */
-.myRow {
-  margin: 20px 0;
-  display: block;
-  width: 100%;
-  position: relative;
-  height: 0;
-  padding: 56.25% 0 0 0;
-  overflow: hidden; }
-
-.myRow img {
-  display: block;
-  margin: auto;
-  /* Playing with the max-width & max-height can bring about cropping effects */
-  max-width: 100%;
-  /*    max-height: 100%; */
+  font-weight: 100;
+  max-width: 80%;
+  width: 100%; }
+ion-header-bar.bar .button-positions, ion-header-bar.bar .nav-button, ion-header-bar.bar .edit-button {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  -webkit-animation: fadein 2s;
-  /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s;
-  /* Firefox < 16 */
-  -ms-animation: fadein 2s;
-  /* Internet Explorer */
-  -o-animation: fadein 2s;
-  /* Opera < 12.1 */
-  animation: fadein 2s; }
+  top: 5px; }
+ion-header-bar.bar .nav-button {
+  right: 40px; }
+ion-header-bar.bar .edit-button {
+  right: 10px; }
+ion-header-bar.bar .item-input-wrapper {
+  background-color: #fff; }
 
-ion-content label {
-  display: none; }
+ion-spinner.spinner {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 50%;
+  width: 50%;
+  height: 50%; }
+
+ion-spinner.spinner svg {
+  width: 100%;
+  height: 100%;
+  margin: -50%; }
+
+ion-content {
+  /* Maintain image ratio: http://www.sitepoint.com/maintain-image-aspect-ratios-responsive-web-design/ */ }
+  ion-content .myRow {
+    margin: 20px 0;
+    display: block;
+    width: 100%;
+    position: relative;
+    height: 0;
+    padding: 56.25% 0 0 0;
+    overflow: hidden; }
+  ion-content .myRow img {
+    display: block;
+    margin: auto;
+    /* Playing with the max-width & max-height can bring about cropping effects */
+    max-width: 100%;
+    /*    max-height: 100%; */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-animation: fadein 2s;
+    /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s;
+    /* Firefox < 16 */
+    -ms-animation: fadein 2s;
+    /* Internet Explorer */
+    -o-animation: fadein 2s;
+    /* Opera < 12.1 */
+    animation: fadein 2s; }
+  ion-content label {
+    display: none; }
 
 @keyframes fadein {
   from {

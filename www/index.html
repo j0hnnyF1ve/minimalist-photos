@@ -28,8 +28,20 @@
     <base href="/"></base>
   </head>
   <body ng-app="main" ng-cloak>
-    <ion-header-bar align-title="left" class="bar-stable" ng-controller="HeaderController as header">
-      <h1 class="title"><span ng-show="header.username">Photos by </span><span ng-bind="header.username"></span></h1>
+    <ion-header-bar class="bar-stable item-input-inset" align-title="left" ng-controller="HeaderController as header">
+    
+      <div class="h1 title" ng-show="!header.searchActive">
+        <span ng-show="header.username">Photos by </span><span ng-bind="header.username"></span>
+      </div>
+      <button ng-show="!header.searchActive" class="nav-button button button-icon icon ion-navicon"></button>
+      <button ng-show="!header.searchActive" class="edit-button button button-clear ion-edit" ng-click="header.searchActive = true;"></button>
+      
+      <label ng-show="header.searchActive" class="item-input-wrapper ng-hide">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input ng-model="header.searchTerm" type="search" placeholder="Flickr Username" ng-keypress="header.searchHandler($event)">
+      </label>
+      <button ng-show="header.searchActive" class="button button-clear ng-hide" ng-click="header.searchActive = false;">Cancel</button>
+    
     </ion-header-bar>    
     <ion-nav-view class="has-header"></ion-nav-view>
   </body>

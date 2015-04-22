@@ -1,4 +1,5 @@
 <ion-content>
+  <ion-spinner ng-show="main.photos.length <= 0" ></ion-spinner>
   <div class="myRow" ng-repeat="photo in main.photos" >
     <img ng-src="{{main.photos[$index].bigPhotoUrl}}" />
     <label ng-bind="main.photos[$index].caption"></label>
