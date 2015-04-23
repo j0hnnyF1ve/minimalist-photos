@@ -31,9 +31,8 @@ ion-header-bar.bar {
         width: 100%;
     }
     
-    .button-positions { position: absolute; top: 5px;}
-    .nav-button     { @extend .button-positions; right: 40px; }
-    .edit-button    { @extend .button-positions; right: 10px; }
+    .buttons .nav-button     { right: 20px; }
+    .buttons .edit-button    { right: 10px; }
     
     .item-input-wrapper { background-color: #fff; }
 }

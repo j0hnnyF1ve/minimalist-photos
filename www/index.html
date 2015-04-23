@@ -28,6 +28,7 @@
     <base href="/"></base>
   </head>
   <body ng-app="main" ng-cloak>
+
     <ion-header-bar 
       class="bar-stable item-input-inset" 
       align-title="left" 
@@ -37,44 +38,51 @@
       <div class="h1 title" ng-show="!header.searchActive">
         <span ng-show="header.username">Photos by </span><span ng-bind="header.username"></span>
       </div>
-      <button ng-show="!header.searchActive" class="nav-button button button-icon icon ion-navicon"></button>
-      <button ng-show="!header.searchActive" class="edit-button button button-clear ion-edit" ng-click="header.searchActive = true;"></button>
+      <div class="buttons" ng-show="!header.searchActive">
+        <button class="nav-button button button-icon icon ion-navicon"></button>
+        <button class="edit-button button button-clear ion-edit" ng-click="header.searchActive = true;"></button>
+      </div>
       
       <label ng-show="header.searchActive" class="item-input-wrapper ng-hide">
         <i class="icon ion-ios-search placeholder-icon"></i>
         <input ng-model="header.searchTerm" type="search" placeholder="Flickr Username" ng-keypress="header.searchHandler($event)">
       </label>
       <button ng-show="header.searchActive" class="button button-clear ng-hide" ng-click="header.searchActive = false;">Cancel</button>
-    
     </ion-header-bar>    
+
     <ion-nav-view name="content" class="has-header">
     </ion-nav-view>
 
   </body>
 
+  <!-- Taking the templates out seem to fix the issue where they can't be found when running on android <--></-->
   <script id="default" type="text/ng-template">
-    <p>To use your flickr account, </p>
-    <p>if it's <span class="highlight">flickr.com/photos/yourname</span>, go to <span ng-bind="default.domain"></span>yourname</p>
+    <ion-view>
+      <p>To use your flickr account, </p>
+      <p>if it's <span class="highlight">flickr.com/photos/yourname</span>, go to <span ng-bind="default.domain"></span>yourname</p>
 
-    <p>You can also enter your username by clicking the search icon in the upper right.</p>
+      <p>You can also enter your username by clicking the search icon in the upper right.</p>
+    </ion-view>
   </script>
 
   <script id="main" type="text/ng-template">
-    <ion-content>
-      <ion-spinner class="photosLoadingSpinner" ng-show="main.photos.length <= 0" ></ion-spinner>
+    <ion-view>
+      <ion-content>
+        <ion-spinner class="photosLoadingSpinner" ng-show="main.photos.length <= 0" ></ion-spinner>
 
-      <div class="myRow" ng-repeat="photo in main.photos" >
-        <img ng-src="{{main.photos[$index].bigPhotoUrl}}" />
-        <label ng-bind="main.photos[$index].caption"></label>
-        <span ng-bind="$index"></span>
-      </div>
+        <div class="myRow" ng-repeat="photo in main.photos" >
+          <img ng-src="{{main.photos[$index].bigPhotoUrl}}" />
+          <label ng-bind="main.photos[$index].caption"></label>
+          <span ng-bind="$index"></span>
+        </div>
 
-      <ion-infinite-scroll 
-        on-infinite="main.loadMorePhotos()" 
-        distance="7%" 
-        immediate-check="false"
-        ng-if="main.hasMorePhotos()"
-        ></ion-infinite-scroll>
-    </ion-content>
+        <ion-infinite-scroll 
+          on-infinite="main.loadMorePhotos()" 
+          distance="7%" 
+          immediate-check="false"
+          ng-if="main.hasMorePhotos()"
+          ></ion-infinite-scroll>
+      </ion-content>
+    </ion-view>
   </script>
 </html>

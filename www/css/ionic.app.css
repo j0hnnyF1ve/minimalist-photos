@@ -7609,12 +7609,9 @@ ion-header-bar.bar .title {
   font-weight: 100;
   max-width: 80%;
   width: 100%; }
-ion-header-bar.bar .button-positions, ion-header-bar.bar .nav-button, ion-header-bar.bar .edit-button {
-  position: absolute;
-  top: 5px; }
-ion-header-bar.bar .nav-button {
-  right: 40px; }
-ion-header-bar.bar .edit-button {
+ion-header-bar.bar .buttons .nav-button {
+  right: 20px; }
+ion-header-bar.bar .buttons .edit-button {
   right: 10px; }
 ion-header-bar.bar .item-input-wrapper {
   background-color: #fff; }
