@@ -16,19 +16,20 @@ angular.module('flickr', [])
 			per_page = per_page || 10;
 			page = page || 1;
 
-			var promise = callFlickr({method: 'getPublicPhotos', extras: {per_page: per_page, page: page, user_id: NSID} });
-			return promise;
+			return callFlickr({method: 'getPublicPhotos', extras: {per_page: per_page, page: page, user_id: NSID} });
 		},
 
 		getNSIDforUsername : function(username) { 
-			var promise = callFlickr({method: 'findByUsername', extras: {username: username} });
-			return promise;
+			return callFlickr({method: 'findByUsername', extras: {username: username} });
 		},
 
 		getNSIDforUrlName : function(urlName) { 
 			var flickrUrl = 'https://www.flickr.com/photos/' + urlName + '/';
-			var promise = callFlickr({ method: 'lookupUser', extras: {url: flickrUrl} });
-			return promise;
+			return callFlickr({ method: 'lookupUser', extras: {url: flickrUrl} });
+		},
+
+		getUserInfo : function(userId) {
+			return callFlickr({ method: 'getUserInfo', extras: {user_id: userId} });
 		}
 	}
 
@@ -59,6 +60,7 @@ angular.module('flickr', [])
 			case 'getPublicPhotos': return 'flickr.people.getPublicPhotos';
 			case 'findByUsername': return 'flickr.people.findByUsername';
 			case 'lookupUser': return 'flickr.urls.lookupUser';
+			case 'getUserInfo' : return 'flickr.people.getInfo';
 			default: return '';
 		}
 	}

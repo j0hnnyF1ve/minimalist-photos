@@ -42,6 +42,41 @@ function PhotoModel($log) {
 	return Photo;
 }
 
+angular.module('main').factory('UserModel', UserModel);
+UserModel.$inject = ['$log'];
+function UserModel($log) {
+	// 'user' is a response object returned from Flickr, the UserModel is in charge of parsing object into a UserModel
+	function User(user) { 
+		var photoInfo = user.photos || {};
+
+console.log(user);
+
+		var self = this;
+		self.username 		= getData(user.username);
+		self.realname 		= getData(user.realname);
+		self.description 	= getData(user.description);
+		self.location 		= getData(user.location);
+		self.mobileUrl 		= getData(user.mobileurl);
+		self.photosUrl 		= getData(user.photosurl);
+		self.profileUrl 	= getData(user.profileurl);
+		self.firstDate 		= getData(photoInfo.firstdate);
+		self.firstDateTaken = getData(photoInfo.firstdatetaken);
+		self.photoCount 	= getData(photoInfo.count);
+		
+		// https://www.flickr.com/services/api/misc.buddyicons.html
+		self.iconUrl		= 'http://farm' + user.iconfarm + '.staticflickr.com/' + user.iconserver + 
+								'/buddyicons/' + user.nsid + '.jpg';
+
+		function getData(data) { 
+			if(!data) { return ''; }
+			if(data['content']) { return data['content']; }
+			else if(data['_content']) { return data['_content']; }
+			else { return '';}
+		}
+	}
+	return User;
+}
+
 angular.module('main').service('AppState', AppState);
 AppState.$inject = [];
 function AppState() {
@@ -53,6 +88,7 @@ function AppState() {
 		properties.currentPhotoset = [];
 		properties.nextPhotoset = [];
 		properties.username = "";
+		properties.userInfo = null;
 		
 		self.get = function(property) { return properties[property];}
 		self.set = function(property, value) { properties[property] = value;	}

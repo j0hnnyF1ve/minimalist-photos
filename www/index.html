@@ -28,7 +28,11 @@
     <base href="/"></base>
   </head>
   <body ng-app="main" ng-cloak>
-    <ion-header-bar class="bar-stable item-input-inset" align-title="left" ng-controller="HeaderController as header">
+    <ion-header-bar 
+      class="bar-stable item-input-inset" 
+      align-title="left" 
+      no-tap-scroll="true"
+      ng-controller="HeaderController as header">
     
       <div class="h1 title" ng-show="!header.searchActive">
         <span ng-show="header.username">Photos by </span><span ng-bind="header.username"></span>
@@ -43,6 +47,35 @@
       <button ng-show="header.searchActive" class="button button-clear ng-hide" ng-click="header.searchActive = false;">Cancel</button>
     
     </ion-header-bar>    
+<!--
     <ion-nav-view class="has-header"></ion-nav-view>
+-->
+    <ion-content class="has-header">
+      <div ui-view="content"></div>
+    </ion-content>
   </body>
+
+  <script id="default" type="text/ng-template">
+    <p>To use your flickr account, </p>
+    <p>if it's <span class="highlight">flickr.com/photos/yourname</span>, go to <span ng-bind="default.domain"></span>yourname</p>
+
+    <p>You can also enter your username by clicking the search icon in the upper right.</p>
+  </script>
+
+  <script id="main" type="text/ng-template">
+    <ion-spinner class="photosLoadingSpinner" ng-show="main.photos.length <= 0" ></ion-spinner>
+
+    <div class="myRow" ng-repeat="photo in main.photos" >
+      <img ng-src="{{main.photos[$index].bigPhotoUrl}}" />
+      <label ng-bind="main.photos[$index].caption"></label>
+      <span ng-bind="$index"></span>
+    </div>
+
+    <ion-infinite-scroll 
+      on-infinite="main.loadMorePhotos()" 
+      distance="7%" 
+      immediate-check="false"
+      ng-if="main.hasMorePhotos()"
+      ></ion-infinite-scroll>
+  </script>
 </html>

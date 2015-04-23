@@ -12,6 +12,8 @@ function HeaderController($scope, $state, AppState) {
 			self.searchActive = false;
 			$state.go('main', { username: self.searchTerm} );
 			self.username = self.searchTerm;
+
+			self.searchTerm = '';
 		}
 	}
 
@@ -45,6 +47,7 @@ function MainController($scope, $state, $stateParams, AppState, PhotoManager) {
 	self.loadMorePhotos = loadMorePhotos;
 	self.hasMorePhotos = hasMorePhotos;
 
+	// Init the photos for this view
 	PhotoManager.init($stateParams.username);
 
 	// Start: Method Implementations

@@ -1,6 +1,8 @@
 angular.module('main').service('PhotoManager', PhotoManager);
-PhotoManager.$inject = ['$interval', '$state', 'Photos', 'AppState', 'FlickrService'];
-function PhotoManager($interval, $state, Photos, AppState, FlickrService) {
+PhotoManager.$inject = ['$interval', '$state', 'Photos', 'AppState', 'FlickrService',
+	'UserModel'];
+function PhotoManager($interval, $state, Photos, AppState, FlickrService, 
+	UserModel) {
 	function photoManager() {
 		var mInterval;
 		var mInitCounter = 0;
@@ -15,6 +17,7 @@ function PhotoManager($interval, $state, Photos, AppState, FlickrService) {
 		this.init = function(username) {
 			mUserId = null;
 			mUsername = '';
+			mCurrentPage = 1;
 
 			tempUsername = username;
 			mInterval = $interval(_checkInit, 1000);
@@ -44,6 +47,8 @@ function PhotoManager($interval, $state, Photos, AppState, FlickrService) {
 			function _setupUser() {
 				if(mUserId) {
 					mUsername = tempUsername;
+					FlickrService.getUserInfo(mUserId)
+						.then(_setupUserInfo);
 					AppState.set('username', mUsername);
 					_getPhotos(mNumPhotos, mCurrentPage);
 				} 
@@ -52,6 +57,14 @@ function PhotoManager($interval, $state, Photos, AppState, FlickrService) {
 					$state.go('default'); 
 
 				}
+			}
+
+			function _setupUserInfo(response) {
+				if(!response.person) { return; }
+				var person = response.person || {};
+				AppState.set('userInfo', new UserModel(person) ); 
+
+				console.log(AppState.get('userInfo'));
 			}
 		}
 
