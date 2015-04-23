@@ -19,8 +19,10 @@ angular.module('main', ['ionic', 'flickr', 'jp-infinite-scroll'])
   });
 })
 
-.config(['$locationProvider', '$stateProvider', '$urlRouterProvider', 
-  function($locationProvider, $stateProvider, $urlRouterProvider) {
+.config(['$ionicConfigProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider', 
+  function($ionicConfigProvider, $locationProvider, $stateProvider, $urlRouterProvider) {
+    $ionicConfigProvider.views.maxCache(1);
+
   $urlRouterProvider.otherwise('/');
 
   var defaultState = {
