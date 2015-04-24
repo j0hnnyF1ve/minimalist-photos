@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('main', ['ionic', 'flickr', 'jp-infinite-scroll'])
 
-.run(function($ionicPlatform, AppState) {
+.run(function($ionicPlatform, $state) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -15,6 +15,8 @@ angular.module('main', ['ionic', 'flickr', 'jp-infinite-scroll'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+    $state.go('main', { username: 'john_pangilinan'} );
 
   });
 })

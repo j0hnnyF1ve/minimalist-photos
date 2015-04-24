@@ -39,13 +39,13 @@
         <span ng-show="header.username">Photos by </span><span ng-bind="header.username"></span>
       </div>
       <div class="buttons" ng-show="!header.searchActive">
-        <button class="nav-button button button-icon icon ion-navicon"></button>
+<!--        <button class="nav-button button button-icon icon ion-navicon"></button> -->
         <button class="edit-button button button-clear ion-edit" ng-click="header.searchActive = true;"></button>
       </div>
       
       <label ng-show="header.searchActive" class="item-input-wrapper ng-hide">
         <i class="icon ion-ios-search placeholder-icon"></i>
-        <input ng-model="header.searchTerm" type="search" placeholder="Flickr Username" ng-keypress="header.searchHandler($event)">
+        <input ng-model="header.searchTerm" type="search" placeholder="Enter a Flickr Username" ng-keypress="header.searchHandler($event)">
       </label>
       <button ng-show="header.searchActive" class="button button-clear ng-hide" ng-click="header.searchActive = false;">Cancel</button>
     </ion-header-bar>    
@@ -58,10 +58,9 @@
   <!-- Taking the templates out seem to fix the issue where they can't be found when running on android <--></-->
   <script id="default" type="text/ng-template">
     <ion-view>
-      <p>To use your flickr account, </p>
-      <p>if it's <span class="highlight">flickr.com/photos/yourname</span>, go to <span ng-bind="default.domain"></span>yourname</p>
-
-      <p>You can also enter your username by clicking the search icon in the upper right.</p>
+      <p>To use your flickr account, enter in your username using the edit icon in the upper right.</p>
+      <p>Your flickr username will usually be something like this: </p>
+      <p><span class="highlight">flickr.com/photos/yourname</span></p>
     </ion-view>
   </script>
 
