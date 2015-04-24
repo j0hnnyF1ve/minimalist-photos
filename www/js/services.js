@@ -1,10 +1,13 @@
 angular.module('main').factory('Photos', PhotosModel);
-PhotosModel.$inject = ['PhotoModel'];
-function PhotosModel(PhotoModel) {
+PhotosModel.$inject = ['PhotoModel', '$log'];
+function PhotosModel(PhotoModel, $log) {
 	
 	function Photos() {
 		var self = this;
 		var mPhotos = [];
+
+		var numImagesLoaded = 0;
+		var numImages = 0;
 		
 		self.getPhotos = function() { return mPhotos;}		
 		self.setPhotos = function(in_photos) { mPhotos = in_photos;	}
@@ -12,17 +15,30 @@ function PhotosModel(PhotoModel) {
 
 		self.getPhotoByIndex = function(index) { return (index >= 0) ? mPhotos[index] : null; } 
 		self.addPhoto = function(photo) { 
-			mPhotos.push(new PhotoModel(photo) ); 
+			var photoModel = new PhotoModel(photo);
+			var bigImage = new Image();
+			bigImage.src = photoModel.bigPhotoUrl;
+			bigImage.onload = function() { 
+				numImagesLoaded++;
+				$log.log(this.src + ' has loaded!'); 
+			}
+
+			mPhotos.push(photoModel); 
 		}
 		self.count = function() { return mPhotos.length; }
+
+		self.isLoaded = function() { 
+			return numImagesLoaded === self.count();
+		}
+
 	}
 
 	return Photos;
 }
 
 angular.module('main').factory('PhotoModel', PhotoModel);
-PhotoModel.$inject = ['$log'];
-function PhotoModel($log) {
+PhotoModel.$inject = [];
+function PhotoModel() {
 	function Photo(photo) {
 		var self = this;
 		self.caption = photo.title || "";
@@ -35,9 +51,6 @@ function PhotoModel($log) {
 							        photo.server + "/" + photo.id + "_" + photo.secret + "_b.jpg";
 		self.pageUrl = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
 
-		var bigImage = new Image();
-		bigImage.src = self.bigPhotoUrl;
-		bigImage.onload = function() { $log.log(self.bigPhotoUrl + ' has loaded!'); }
 	}
 	return Photo;
 }

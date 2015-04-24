@@ -383,7 +383,7 @@
 			"file": "scss/ionic.app.scss",
 			"settings":
 			{
-				"buffer_size": 3029,
+				"buffer_size": 3114,
 				"line_ending": "Unix"
 			}
 		},
@@ -391,7 +391,7 @@
 			"file": "www/index.html",
 			"settings":
 			{
-				"buffer_size": 2043,
+				"buffer_size": 3285,
 				"line_ending": "Unix"
 			}
 		},
@@ -399,7 +399,7 @@
 			"file": "www/js/controllers.js",
 			"settings":
 			{
-				"buffer_size": 3204,
+				"buffer_size": 3264,
 				"line_ending": "Windows"
 			}
 		},
@@ -407,23 +407,15 @@
 			"file": "www/js/PhotoManager.js",
 			"settings":
 			{
-				"buffer_size": 1756,
+				"buffer_size": 2094,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "www/js/app.js",
-			"settings":
-			{
-				"buffer_size": 1424,
-				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "www/js/services.js",
 			"settings":
 			{
-				"buffer_size": 1981,
+				"buffer_size": 3232,
 				"line_ending": "Windows"
 			}
 		},
@@ -431,16 +423,16 @@
 			"file": "www/js/flickr/FlickrService.js",
 			"settings":
 			{
-				"buffer_size": 1883,
+				"buffer_size": 1978,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "www/templates/main.html",
+			"file": "www/js/app.js",
 			"settings":
 			{
-				"buffer_size": 483,
-				"line_ending": "Windows"
+				"buffer_size": 1582,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -520,8 +512,8 @@
 	},
 	"file_history":
 	[
-		"/C/wamp/www/my_projects/minimalist-photos/www/templates/default.html",
 		"/C/wamp/www/my_projects/minimalist-photos/www/templates/main.html",
+		"/C/wamp/www/my_projects/minimalist-photos/www/templates/default.html",
 		"/C/wamp/www/my_projects/minimalist-photos/www/js/flickr/FlickrService.js",
 		"/C/wamp/www/my_projects/minimalist-photos/www/js/infinite-scroll/Infinite-Scroll.js",
 		"/C/wamp/www/my_projects/minimalist-photos/www/css/ionic.app.css",
@@ -788,6 +780,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			" || \"\"",
 			"in_username",
 			"\"",
 			"username",
@@ -914,15 +907,15 @@
 			"videoLoad",
 			"playStart",
 			"videoLoad",
-			"playStart",
-			"dashboardC"
+			"playStart"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"",
 			"mUsername",
 			"'",
 			"self",
@@ -1049,8 +1042,7 @@
 			"PageClosedModel",
 			"",
 			"'",
-			"null",
-			"PlayEventOps"
+			"null"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1061,7 +1053,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1069,15 +1061,15 @@
 					"file": "scss/ionic.app.scss",
 					"settings":
 					{
-						"buffer_size": 3029,
+						"buffer_size": 3114,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1455,
-								1455
+								1103,
+								1103
 							]
 						],
 						"settings":
@@ -1087,7 +1079,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 630.0,
+						"translation.y": 385.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1097,15 +1089,15 @@
 					"file": "www/index.html",
 					"settings":
 					{
-						"buffer_size": 2043,
+						"buffer_size": 3285,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1883,
-								1883
+								1382,
+								1382
 							]
 						],
 						"settings":
@@ -1115,7 +1107,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 419.0,
+						"translation.y": 1274.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1125,15 +1117,15 @@
 					"file": "www/js/controllers.js",
 					"settings":
 					{
-						"buffer_size": 3204,
+						"buffer_size": 3264,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1177,
+								1177
 							]
 						],
 						"settings":
@@ -1142,7 +1134,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 537.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1152,15 +1144,15 @@
 					"file": "www/js/PhotoManager.js",
 					"settings":
 					{
-						"buffer_size": 1756,
+						"buffer_size": 2094,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1224,
-								1224
+								1590,
+								1590
 							]
 						],
 						"settings":
@@ -1169,53 +1161,52 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 827.0,
+						"translation.y": 1757.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "www/js/app.js",
+					"file": "www/js/services.js",
 					"settings":
 					{
-						"buffer_size": 1424,
+						"buffer_size": 3232,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1340,
-								1340
+								1328,
+								1328
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 509.0,
+						"translation.y": 372.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "www/js/services.js",
+					"file": "www/js/flickr/FlickrService.js",
 					"settings":
 					{
-						"buffer_size": 1981,
+						"buffer_size": 1978,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1427,
-								1427
+								1047,
+								1047
 							]
 						],
 						"settings":
@@ -1224,62 +1215,35 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 420.0,
+						"translation.y": 480.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "www/js/flickr/FlickrService.js",
+					"file": "www/js/app.js",
 					"settings":
 					{
-						"buffer_size": 1883,
+						"buffer_size": 1582,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								162,
-								162
+								964,
+								964
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "www/templates/main.html",
-					"settings":
-					{
-						"buffer_size": 483,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								61,
-								61
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 473.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

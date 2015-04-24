@@ -28,8 +28,10 @@ function HeaderController($scope, $state, AppState) {
 }
 
 angular.module('main').controller('MainController', MainController);
-MainController.$inject = ['$scope', '$state', '$stateParams', 'AppState', 'PhotoManager'];
-function MainController($scope, $state, $stateParams, AppState, PhotoManager) {
+MainController.$inject = ['$scope', '$state', '$stateParams', '$interval',
+	'AppState', 'PhotoManager'];
+function MainController($scope, $state, $stateParams, $interval,
+	AppState, PhotoManager) {
 
 	if(!$stateParams.username || $stateParams.username.length <= 0) { 
 		$state.go('default');
@@ -40,6 +42,8 @@ function MainController($scope, $state, $stateParams, AppState, PhotoManager) {
 	var currentPhotoset = AppState.get('currentPhotoset');
 	var currentIndex = 0;
 	var isStart = true;
+
+	var currentInterval;
 
 	self.photos = [];
 
@@ -85,13 +89,25 @@ function MainController($scope, $state, $stateParams, AppState, PhotoManager) {
 					currentIndex = 0;
 					
 					if(isStart === true) {
-						self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
-						self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
-						self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
+						currentInterval = $interval(function() { 
+							if(AppState.get('currentPhotoset').isLoaded() ) {
+								self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
+								self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
+								self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
+
+								$interval.cancel(currentInterval);
+							}
+						}, 1000);
 						isStart = false;
 					}
 					else {
-						self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
+						currentInterval = $interval(function() { 
+							if(AppState.get('currentPhotoset').isLoaded() ) {
+								self.photos.push( currentPhotoset.getPhotoByIndex(currentIndex++) );
+
+								$interval.cancel(currentInterval);
+							}
+						}, 1000);
 					}
 				}
 			}
